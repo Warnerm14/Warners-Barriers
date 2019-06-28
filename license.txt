@@ -1,0 +1,14 @@
+ __      __                     _      ___           _                
+ \ \    / /_ _ _ _ _ _  ___ _ _( )___ | _ ) __ _ _ _(_)_ _ ___ _ _ ___
+  \ \/\/ / _` | '_| ' \/ -_) '_|/(_-< | _ \/ _` | '_| | '_/ -_) '_(_-<
+   \_/\_/\__,_|_| |_||_\___|_|   /__/ |___/\__,_|_| |_|_| \___|_| /__/
+
+Warner's Barriers for Arma 3
+
+Author: Matthew Warner (Warnerm14)
+www.twitter.com/Warnerm14
+   
+You may use the Warners-Barriers.pbo on your server without receiving permission from the Author.
+You may redistribute the Warners-Barriers.pbo as long as you give proper credit to the Author.
+You may not remove any code from the Warners-Barriers.pbo to use in your own mods/mission/projects without permission from the Author.
+You may repack the Warners-Barriers.pbo with edits made to the code as long as you do not modify the comment blocks. (Except the "With edits by:" part).
