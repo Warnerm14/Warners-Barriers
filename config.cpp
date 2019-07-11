@@ -92,7 +92,7 @@ class cfgMagazines
 		warner_class = "RoadCone_L_F";		
 	};
 	
-	class warner_plasticBarrier1_orange: warn_baseItem
+	class warn_plasticBarrier1_orange: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -100,7 +100,7 @@ class cfgMagazines
 		warner_class = "PlasticBarrier_03_orange_F";		
 	};
 	
-	class warner_plasticBarrier1_blue: warn_baseItem
+	class warn_plasticBarrier1_blue: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -108,7 +108,7 @@ class cfgMagazines
 		warner_class = "PlasticBarrier_03_blue_F";		
 	};
 	
-	class warner_plasticBarrier2_yellow: warn_baseItem
+	class warn_plasticBarrier2_yellow: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -116,7 +116,7 @@ class cfgMagazines
 		warner_class = "PlasticBarrier_02_yellow_F";		
 	};
 	
-	class warner_plasticBarrier2_grey: warn_baseItem
+	class warn_plasticBarrier2_grey: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -124,7 +124,7 @@ class cfgMagazines
 		warner_class = "PlasticBarrier_02_grey_F";		
 	};
 	
-	class warner_RoadBarrier: warn_baseItem
+	class warn_roadbarrier: warn_baseItem
 	{
 		mass = 2.5;
 		scope = 2;
@@ -133,7 +133,7 @@ class cfgMagazines
 		warner_class = "RoadBarrier_F";		
 	};
 	
-	class warner_RoadBarrierSmall: warn_baseItem
+	class warn_roadbarrierSmall: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -142,7 +142,7 @@ class cfgMagazines
 		warner_class = "RoadBarrier_small_F";		
 	};
 	
-	class warner_portableLamp_single: warn_baseItem
+	class warn_portableLamp_single: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -152,7 +152,7 @@ class cfgMagazines
 		warner_class = "Land_PortableLight_single_F";		
 	};
 	
-	class warner_portableLamp_double: warn_baseItem
+	class warn_portableLamp_double: warn_baseItem
 	{
 		mass = 1;
 		scope = 2;
@@ -193,44 +193,44 @@ class CfgVehicles
 				magazine="warn_coneLight";
 				count=50;
 			};
-			class _xx_warner_plasticBarrier1_orange
+			class _xx_warn_plasticBarrier1_orange
 			{
-				magazine="warner_plasticBarrier1_orange";
+				magazine="warn_plasticBarrier1_orange";
 				count=50;
 			};
-			class _xx_warner_plasticBarrier1_blue
+			class _xx_warn_plasticBarrier1_blue
 			{
-				magazine="warner_plasticBarrier1_blue";
+				magazine="warn_plasticBarrier1_blue";
 				count=50;
 			};
-			class _xx_warner_plasticBarrier2_yellow
+			class _xx_warn_plasticBarrier2_yellow
 			{
-				magazine="warner_plasticBarrier2_yellow";
+				magazine="warn_plasticBarrier2_yellow";
 				count=50;
 			};
-			class _xx_warner_plasticBarrier2_grey
+			class _xx_warn_plasticBarrier2_grey
 			{
-				magazine="warner_plasticBarrier2_grey";
+				magazine="warn_plasticBarrier2_grey";
 				count=50;
 			};
-			class _xx_warner_RoadBarrier
+			class _xx_warn_roadbarrier
 			{
-				magazine="warner_RoadBarrier";
+				magazine="warn_roadbarrier";
 				count=50;
 			};
-			class _xx_warner_RoadBarrierSmall
+			class _xx_warn_roadbarrierSmall
 			{
-				magazine="warner_RoadBarrierSmall";
+				magazine="warn_roadbarrierSmall";
 				count=50;
 			};
-			class _xx_warner_portableLamp_single
+			class _xx_warn_portableLamp_single
 			{
-				magazine="warner_portableLamp_single";
+				magazine="warn_portableLamp_single";
 				count=50;
 			};
-			class _xx_warner_portableLamp_double
+			class _xx_warn_portableLamp_double
 			{
-				magazine="warner_portableLamp_double";
+				magazine="warn_portableLamp_double";
 				count=50;
 			};
 			class _xx_warn_bargate
