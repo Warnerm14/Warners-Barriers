@@ -28,18 +28,18 @@ if (isNil {player getVariable "canUseBarriers"}) then {
 player addAction [("<t color=""#0066d1"">" + ("Drop") +"</t>"),{detach warn_placeable; warn_placeable setVectorUP (surfaceNormal [(getPosATL warn_placeable) select 0,(getPosATL warn_placeable) select 1]); [getPos warn_placeable, getDir warn_placeable, warn_placeable] remoteExecCall ["warner_fnc_globalUpdate",-2,false]; warn_placeable = objNull;},[""],0.1,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player  && vehicle player == player"];
 player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (cursorObject getVariable "class"); deleteVehicle cursorObject;},[""],0.1,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && cursorObject getVariable 'placeable' && (player distance cursorObject) <= 2 && vehicle player == player"];
 
-player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable "class"); deleteVehicle ((nearestObjects [player, warn_noCursorObject, 5]) select 0);},[""],0.1,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && ((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable 'placeable' && (player distance ((nearestObjects [player, warn_noCursorObject, 5]) select 0)) <= 1 && vehicle player == player"];
+player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable "class"); deleteVehicle ((nearestObjects [player, warn_noCursorObject, 5]) select 0);},[""],0.1,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && ((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable 'placeable' && (player distance ((nearestObjects [player, warn_noCursorObject, 5]) select 0)) <= 5 && vehicle player == player"];
 
 player addEventHandler ["InventoryOpened", {
 	handle = false;
 	[] spawn {
 		uiSleep 0.05;
 		waitUntil {!(isNull (findDisplay 602)) || handle };
-		if(!handle) then {
-			((findDisplay 602) displayCtrl 638) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];  
-			((findDisplay 602) displayCtrl 633) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];  
-			((findDisplay 602) displayCtrl 640) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];  
+		if(!handle) then { 
 			((findDisplay 602) displayCtrl 619) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];
+			((findDisplay 602) displayCtrl 638) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"]; 
+			((findDisplay 602) displayCtrl 640) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];   
+			((findDisplay 602) displayCtrl 633) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"]; 
 		}; 
 	};
 }];
