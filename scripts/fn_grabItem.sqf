@@ -30,6 +30,7 @@ _z = parseNumber (_tmpPos select 2);
 _newPos = [_x,_y,_z];
 
 warn_placeable = _class createVehicle position player;
+if (isNull warn_placeable) exitWith {hint "Error: The classname for this object is not properly defined.";};
 warn_placeable attachTo [player,_newPos];
 warn_placeable setDir _dir;
 
