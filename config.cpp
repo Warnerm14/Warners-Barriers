@@ -53,6 +53,7 @@ class cfgMagazines
 		warner_pos = "[0, 2, 0.35]";
 		warner_dir = 0;
 		warner_allowDamage = 1;
+		warner_texture[] = {};
 		
 		author = "Warnerm14";
 		model = "\A3\weapons_F\ammo\mag_univ.p3d";
@@ -72,6 +73,7 @@ class cfgMagazines
 		warner_class = "my_barrier_f"; // Classname of the barrier itself.	
 		warner_pos = "[0, 4, 4.35]"; // The position that is used to attach it to the player.
 		warner_allowDamage = 1;	// Should the item have god mode? 0 = yes, 1 = no
+		warner_texture[] = {{0,"texture path 1"},{1,"texture path 2"}}; // Delete if not in use, ARRAY MUST BE NESTED AS SHOWN.
 	};
 	
 	/*===================================================*/
@@ -81,7 +83,7 @@ class cfgMagazines
 		mass = 0.2;
 		scope = 2;
 		displayName = "Road Cone";
-		warner_class = "RoadCone_F";		
+		warner_class = "RoadCone_F";	
 	};
 	
 	class warn_coneLight: warn_baseItem
@@ -172,6 +174,17 @@ class cfgMagazines
 		warner_pos = "[0, 4, 4.35]";
 		warner_allowDamage = 0;	
 	};
+	
+	class warn_checkpointSign: warn_baseItem
+	{
+		mass = 4;
+		scope = 2;
+		
+		displayName = "Sign (PD Checkpoint)";
+		warner_class = "SignAd_Sponsor_F";	
+		warner_allowDamage = 0;	
+		warner_texture[] = {{0,"\warners-barriers\textures\checkpoint_sign.paa"}};	
+	};
 };
 
 class CfgVehicles
@@ -236,6 +249,11 @@ class CfgVehicles
 			class _xx_warn_bargate
 			{
 				magazine="warn_bargate";
+				count=50;
+			};
+			class _xx_warn_checkpointSign
+			{
+				magazine="warn_checkpointSign";
 				count=50;
 			};
 		};
