@@ -21,6 +21,7 @@ _class = getText (configFile >> "CfgMagazines" >> _item >> "warner_class");
 _pos = getText (configFile >> "CfgMagazines" >> _item >> "warner_pos");
 _dir = getNumber (configFile >> "CfgMagazines" >> _item >> "warner_dir");
 _damage = getNumber (configFile >> "CfgMagazines" >> _item >> "warner_allowDamage");
+_arry = getArray (configFile >> "CfgMagazines" >> _item >> "warner_texture");
 
 _tmpPos = _pos splitString "[],";
 _x = parseNumber (_tmpPos select 0);
@@ -33,6 +34,12 @@ warn_placeable = _class createVehicle position player;
 if (isNull warn_placeable) exitWith {hint "Error: The classname for this object is not properly defined.";};
 warn_placeable attachTo [player,_newPos];
 warn_placeable setDir _dir;
+
+if (count _arry != 0) then {
+	{
+		warn_placeable setObjectTextureGlobal [_x select 0,_x select 1];
+	} forEach _arry;
+};
 
 warn_placeable setVariable ["placeable",true,true];
 warn_placeable setVariable ["owner",getPlayerUID player,true];
