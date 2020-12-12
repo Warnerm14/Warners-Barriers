@@ -23,12 +23,14 @@ class CfgPatches {
 				
 		requiredVersion = 0.1;
 		requiredAddons[] = {};
+		units[] = {};
+		weapons[] = {};
 	};
 };
 
 class CfgFunctions
 {
-    class warner
+    class warnerBarriers
     {
         class functions
         {

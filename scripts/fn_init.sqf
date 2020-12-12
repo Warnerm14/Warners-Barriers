@@ -14,33 +14,34 @@
 		
 	File Desc: This file is ran on player init via postInit, it sets up Variable, Add Actions, and Event Handlers.
 */
+[] spawn {
+	waitUntil {!(IsNull (findDisplay 46))};
+	warn_placeable = objNull;
 
-waitUntil {!(IsNull (findDisplay 46))};
-warn_placeable = objNull;
+	/*If you add something and you don't get the pickup option on it, add its classname to this list.*/
+	warn_noCursorObject = ["RoadBarrier_F","Land_BarGate_F"]; 
 
-/*If you add something and you don't get the pickup option on it, add its classname to this list.*/
-warn_noCursorObject = ["RoadBarrier_F","Land_BarGate_F"]; 
-
-if (isNil {player getVariable "canUseBarriers"}) then {
-	player setVariable ["canUseBarriers",true,true];
-};
-
-player addAction [("<t color=""#0066d1"">" + ("Drop") +"</t>"),{detach warn_placeable; warn_placeable setVectorUP (surfaceNormal [(getPosATL warn_placeable) select 0,(getPosATL warn_placeable) select 1]); [getPos warn_placeable, getDir warn_placeable, warn_placeable] remoteExecCall ["warner_fnc_globalUpdate",-2,false]; warn_placeable = objNull;},[""],0.3,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player && vehicle player == player"];
-player addAction [("<t color=""#F59410"">" + ("Drop Multiple") +"</t>"),{detach warn_placeable; warn_placeable setVectorUP (surfaceNormal [(getPosATL warn_placeable) select 0,(getPosATL warn_placeable) select 1]); [getPos warn_placeable, getDir warn_placeable, warn_placeable] remoteExecCall ["warner_fnc_globalUpdate",-2,false]; _class = warn_placeable getVariable "class"; warn_placeable = objNull; [_class] spawn warner_fnc_grabItem;},[""],0.3,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player && (warn_placeable getVariable 'class') in (magazines player) && vehicle player == player"];
-player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (cursorObject getVariable "class"); deleteVehicle cursorObject;},[""],0.2,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && cursorObject getVariable 'placeable' && (player distance cursorObject) <= 2 && vehicle player == player"];
-player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable "class"); deleteVehicle ((nearestObjects [player, warn_noCursorObject, 5]) select 0);},[""],0.2,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && ((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable 'placeable' && (player distance ((nearestObjects [player, warn_noCursorObject, 5]) select 0)) <= 5 && vehicle player == player"];
-player addAction [("<t color=""#F51010"">" + ("Cancel") +"</t>"),{detach warn_placeable; player addMagazine (warn_placeable getVariable "class"); deleteVehicle warn_placeable},[""],0.1,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player  && vehicle player == player"];
-
-player addEventHandler ["InventoryOpened", {
-	handle = false;
-	[] spawn {
-		uiSleep 0.05;
-		waitUntil {!(isNull (findDisplay 602)) || handle };
-		if(!handle) then { 
-			((findDisplay 602) displayCtrl 619) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];
-			((findDisplay 602) displayCtrl 638) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"]; 
-			((findDisplay 602) displayCtrl 640) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];   
-			((findDisplay 602) displayCtrl 633) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"]; 
-		}; 
+	if (isNil {player getVariable "canUseBarriers"}) then {
+		player setVariable ["canUseBarriers",true,true];
 	};
-}];
+
+	player addAction [("<t color=""#0066d1"">" + ("Drop") +"</t>"),{detach warn_placeable; warn_placeable setVectorUP (surfaceNormal [(getPosATL warn_placeable) select 0,(getPosATL warn_placeable) select 1]); [getPos warn_placeable, getDir warn_placeable, warn_placeable] remoteExecCall ["warner_fnc_globalUpdate",-2,false]; warn_placeable = objNull;},[""],0.3,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player && vehicle player == player"];
+	player addAction [("<t color=""#F59410"">" + ("Drop Multiple") +"</t>"),{detach warn_placeable; warn_placeable setVectorUP (surfaceNormal [(getPosATL warn_placeable) select 0,(getPosATL warn_placeable) select 1]); [getPos warn_placeable, getDir warn_placeable, warn_placeable] remoteExecCall ["warner_fnc_globalUpdate",-2,false]; _class = warn_placeable getVariable "class"; warn_placeable = objNull; [_class] spawn warner_fnc_grabItem;},[""],0.3,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player && (warn_placeable getVariable 'class') in (magazines player) && vehicle player == player"];
+	player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (cursorObject getVariable "class"); deleteVehicle cursorObject;},[""],0.2,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && cursorObject getVariable 'placeable' && (player distance cursorObject) <= 2 && vehicle player == player"];
+	player addAction [("<t color=""#0066d1"">" + ("Pickup") +"</t>"),{player addMagazine (((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable "class"); deleteVehicle ((nearestObjects [player, warn_noCursorObject, 5]) select 0);},[""],0.2,false,true,"","player getVariable 'canUseBarriers' && (count (attachedObjects player)) == 0 && ((nearestObjects [player, warn_noCursorObject, 5]) select 0) getVariable 'placeable' && (player distance ((nearestObjects [player, warn_noCursorObject, 5]) select 0)) <= 5 && vehicle player == player"];
+	player addAction [("<t color=""#F51010"">" + ("Cancel") +"</t>"),{detach warn_placeable; player addMagazine (warn_placeable getVariable "class"); deleteVehicle warn_placeable},[""],0.1,false,true,"","player getVariable 'canUseBarriers' && { if (_x getVariable 'placeable') exitWith {true;}; } forEach attachedObjects player  && vehicle player == player"];
+
+	player addEventHandler ["InventoryOpened", {
+		handle = false;
+		[] spawn {
+			uiSleep 0.05;
+			waitUntil {!(isNull (findDisplay 602)) || handle };
+			if(!handle) then { 
+				((findDisplay 602) displayCtrl 619) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];
+				((findDisplay 602) displayCtrl 638) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"]; 
+				((findDisplay 602) displayCtrl 640) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"];   
+				((findDisplay 602) displayCtrl 633) ctrlSetEventHandler ["LBDblClick", "_this call warner_fnc_invController"]; 
+			}; 
+		};
+	}];
+};
