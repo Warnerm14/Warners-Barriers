@@ -2,8 +2,9 @@
 	Warner's Barriers for Arma 3
 	
 	Author: Matthew Warner (Warnerm14)
+	Discord: Warnerm14#3936
 	Site: www.twitter.com/Warnerm14
-	
+
 	With edits by: <Your Name Here>
 		
 	Permission: 

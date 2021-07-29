@@ -2,8 +2,9 @@
 	Warner's Barriers for Arma 3
 	
 	Author: Matthew Warner (Warnerm14)
+	Discord: Warnerm14#3936
 	Site: www.twitter.com/Warnerm14
-	
+
 	With edits by: <Your Name Here>
 		
 	Permission: 
@@ -15,7 +16,7 @@
 	File Desc: This file is ran when you double click on a valid item in your inventory.
 */
 
-if (!(player getVariable "canUseBarriers")) exitWith {};
+if (!(player getVariable ["canUseBarriers",false])) exitWith {};
 _item = _this select 0;
 _class = getText (configFile >> "CfgMagazines" >> _item >> "warner_class");
 _pos = getText (configFile >> "CfgMagazines" >> _item >> "warner_pos");

@@ -2,8 +2,9 @@
 	Warner's Barriers for Arma 3
 	
 	Author: Matthew Warner (Warnerm14)
+	Discord: Warnerm14#3936
 	Site: www.twitter.com/Warnerm14
-	
+
 	With edits by: <Your Name Here>
 		
 	Permission: 
@@ -23,7 +24,7 @@ _item = lbData [_idc, _selectedIndex];
 _check = getNumber (configFile >> "CfgMagazines" >> _item >> "warner_placeable");
 if (_check == 0) exitWith {};
 
-[_item] spawn warner_fnc_grabItem;
+[_item] spawn warnerBarriers_fnc_grabItem;
 
 closeDialog 0;
 false;
